@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+# encoding: utf-8
+import os
+import argparse
+
+parser=argparse.ArgumentParser()
+parser.add_argument('root',help='The directory you wanna walk')
+parser.add_argument('-e','--ext',help='The extension you might wanna add',default='')
+args=parser.parse_args()
+
+for current,subdir,files in os.walk(args.root):
+    for file in files:
+        if args.ext=='' or os.path.splitext(file)[1]==args.ext:
+            print(os.path.join(current,file))
+

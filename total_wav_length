@@ -1,0 +1,2 @@
+#!/bin/bash
+soxi -D $(walk $1 -e .wav) | paste -sd+ | bc
